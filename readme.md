@@ -1,15 +1,14 @@
-# cpp-oss-template
-[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/hyp3rflow/cpp-oss-template/blob/master/LICENSE) 
-[![Build Status](https://travis-ci.com/hyp3rflow/cpp-oss-template.svg?branch=master)](https://travis-ci.com/hyp3rflow/cpp-oss-template.svg?branch=master)
-[![codecov](https://codecov.io/gh/hyp3rflow/cpp-oss-template/branch/master/graph/badge.svg)](https://codecov.io/gh/hyp3rflow/cpp-oss-template)  
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_cpp-oss-template&metric=alert_status)](https://sonarcloud.io/dashboard?id=hyp3rflow_cpp-oss-template)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_cpp-oss-template&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_cpp-oss-template)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_cpp-oss-template&metric=security_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_cpp-oss-template)  
-cpp-oss-template is a simple template for C++ language based project.
+# hyperGuess
+[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/hyp3rflow/hyperGuess/blob/master/LICENSE) 
+[![Build Status](https://travis-ci.com/hyp3rflow/hyperGuess.svg?branch=master)](https://travis-ci.com/hyp3rflow/hyperGuess.svg?branch=master)
+[![codecov](https://codecov.io/gh/hyp3rflow/hyperGuess/branch/master/graph/badge.svg)](https://codecov.io/gh/hyp3rflow/hyperGuess)  
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=alert_status)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=security_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)  
+hyperGuess is Guessing game simulator using C++ with some reinforcement learning.
 
 ## References
 
-- https://github.com/codecov/cpp-11-standard
 - https://github.com/utilForever/cpp-oss-template
 
 ## License
