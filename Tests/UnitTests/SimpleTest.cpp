@@ -5,7 +5,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-#include <cpp_practice/Test.hpp>
+#include <hyperGuess/Test.hpp>
 
 TEST_CASE("Simple Test")
 {

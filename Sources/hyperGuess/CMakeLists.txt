@@ -1,5 +1,5 @@
 # Target name
-set(target cpp_practice)
+set(target hyperGuess)
 
 # Define
 set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)

@@ -17,6 +17,7 @@ out
 cmake-build-debug
 .vs
 .idea
+CMakeSettings.json
 
 ### CMake Patch ###
 # External projects

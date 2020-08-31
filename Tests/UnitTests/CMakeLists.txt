@@ -25,5 +25,5 @@ target_compile_definitions(${target}
 target_link_libraries(${target}
 	PRIVATE
 	${DEFAULT_LINKER_OPTIONS}
-	cpp_practice
+	hyperGuess
 	doctest) 
