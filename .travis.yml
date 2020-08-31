@@ -1,0 +1,38 @@
+language: cpp
+matrix:
+  include:
+  - name: Test Ubuntu 16.04 + gcc-7 + codecov + sonarcloud
+    os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - g++-7
+      sonarcloud:
+        organization: "hyp3rflow"
+        token:
+          secure: "bXIg73xcgZsiQya65jXj86QLmF5zImTJAKNb9TiSnUOIkyeQ20knU63ytIBJVPDL6DJzKVpQoHI2yGeJaNZekTAMjKAimBr6ML6h0ChAYKrLwhHjb4V7aiB3susWs+tAf5TbzK0xIBMy5y9gZtydWO+3S/k9l6EMf1yTbRcHwwZRk1vauFWKJc0I7Q4XN85M1s8Fj/ovzCOPirGRLNjF/f+EzoDTUmunhTrx+QSgm76OtXq7ctw/LWH2u4sWi9bL1ZTkWFvoY1cXT+AzSh6sV2wRnHDlToKXYr9OwKvdi8kEwM99Sx7eU9xIV7/lpob7jEpv4SRvTvLhhRLQ5vOP/sVh3+/EezSWYvp15LNgATFTDoD1MYO9u855GRJYA0fqSzqroEiyh1ooTMM9dzOg9x4MtdDiqZ1+5ehPd4qcQbJQPMhj8ofofwSo74Sgl2IBO8DI7KAbfMYRQDdI/Rg2G/7WvQGGmwa4hwczGGmr514gtT+Jblrij7NI0lOXO9zs/UmfeiSY03znXYHKejz6rN11YKqghMUuPQYQ032PC4oncJW/TQTAoLCIaicwf7ffyOw8SCck/RQTKB4Ll/RZEhlJH8UBImXwoCeC84uXQhS+JZTQJOequUYptxnWxj7/HYggVASEmKPWXPHplP1i1jRStV5SYA/BvTyYwh/ljPI="
+    dist: xenial
+    sudo: required
+    compiler: gcc
+    env:
+    - BUILD_TYPE=Debug
+    script:
+    - sh Scripts/travis_build_codecov_sonar.sh
+  - name: Ubuntu 18.04 LTS + gcc
+    os: linux
+    dist: bionic
+    sudo: required
+    compiler: gcc
+    script:
+    - sh Scripts/travis_build.sh
+  - name: Test OS X 10.14 + Xcode 10.2 + clang
+    os: osx
+    osx_image: xcode10.2
+    compiler: clang
+    script:
+    - sh Scripts/travis_build.sh
+  before_install:
+  - eval "${MATRIX_EVAL}"
+
