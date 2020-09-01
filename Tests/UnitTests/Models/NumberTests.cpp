@@ -9,7 +9,7 @@
 
 TEST_CASE("[Number] - Pick a number")
 {
-    hyperGuess::Number number;
+    hyperguess::Number number;
 
     number.Roll();
 

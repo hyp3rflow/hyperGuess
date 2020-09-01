@@ -5,7 +5,7 @@
 #ifndef HYPERGUESS_NUMBER_HPP
 #define HYPERGUESS_NUMBER_HPP
 
-namespace hyperGuess {
+namespace hyperguess {
     class Number {
     public:
         [[nodiscard]] int GetValue() const;
@@ -14,6 +14,6 @@ namespace hyperGuess {
     private:
         int value = 0;
     };
-}// namespace hyperGuess
+}// namespace hyperguess
 
 #endif//HYPERGUESS_NUMBER_HPP

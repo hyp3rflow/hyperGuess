@@ -5,7 +5,7 @@
 #include <effolkronium/random.hpp>
 #include <hyperGuess/Models/Number.hpp>
 
-namespace hyperGuess {
+namespace hyperguess {
     int Number::GetValue() const {
         return value;
     }
@@ -15,4 +15,4 @@ namespace hyperGuess {
 
         value = Random::get<int>(1, 100);
     }
-}// namespace hyperGuess
+}// namespace hyperguess
