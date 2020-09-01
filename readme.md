@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/hyp3rflow/hyperGuess.svg?branch=master)](https://travis-ci.com/hyp3rflow/hyperGuess.svg?branch=master)
 [![codecov](https://codecov.io/gh/hyp3rflow/hyperGuess/branch/master/graph/badge.svg)](https://codecov.io/gh/hyp3rflow/hyperGuess)  
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=alert_status)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=hyp3rflow_hyperGuess&metric=security_rating)](https://sonarcloud.io/dashboard?id=hyp3rflow_hyperGuess)  
 hyperGuess is Guessing game simulator using C++ with some reinforcement learning.
@@ -10,6 +11,7 @@ hyperGuess is Guessing game simulator using C++ with some reinforcement learning
 ## References
 
 - https://github.com/utilForever/cpp-oss-template
+- https://github.com/utilForever/YahtzeeMaster
 
 ## License
 
