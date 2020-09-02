@@ -44,7 +44,7 @@ namespace hyperguess {
 
     [[nodiscard]] ResultType Game::CheckPickedNumber(int number) const {
         if (number == answer) return ResultType::EQUAL;
-        if (number > answer) return ResultType::UP;
-        if (number < answer) return ResultType::DOWN;
+        else if (number > answer) return ResultType::UP;
+        else return ResultType::DOWN;
     }
 }// namespace hyperguess
