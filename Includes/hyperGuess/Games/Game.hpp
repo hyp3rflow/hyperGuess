@@ -15,9 +15,6 @@ namespace hyperguess {
         //! \param number The answer.
         explicit Game(int answer);
 
-        //! Reset data.
-        void Reset();
-
         [[nodiscard]] int GetAnswer() const;
         [[nodiscard]] int GetCount() const;
 

@@ -11,11 +11,6 @@ namespace hyperguess {
         gameState = PlayState::PLAYING;
     }
 
-    void Game::Reset() {
-        picked_numbers.fill({});
-        gameState = PlayState::PLAYING;
-    }
-
     int Game::GetAnswer() const {
         return answer;
     }
