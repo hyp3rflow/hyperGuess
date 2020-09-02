@@ -35,6 +35,7 @@ namespace hyperguess {
     }
 
     ResultType Game::ProcessNumber(int number) {
+        picked_number = number;
         count++;
 
         CheckGameState();
