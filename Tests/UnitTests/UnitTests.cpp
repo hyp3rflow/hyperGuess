@@ -25,17 +25,16 @@ TEST_CASE("Game - Basic") {
     CHECK(game.GetCount() == 0);
 
     int test_count = 1;
-    bool flag = true;
-    while (test_count <= 100 && flag) {
+    while (test_count <= 100) {
         CHECK(game.GetPlayState() == PlayState::PLAYING);
 
         int guessed_number = Random::get(1, 1000);
+        if(test_count == 100) guessed_number = selected_answer;
         ResultType result = game.ProcessNumber(guessed_number);
 
         CHECK(game.GetCount() == test_count);
 
         if (result == ResultType::EQUAL) {
-            flag = false;
             CHECK(guessed_number == selected_answer);
             CHECK(game.GetPlayState() == PlayState::WON);
         } else {
@@ -48,12 +47,6 @@ TEST_CASE("Game - Basic") {
         }
 
         test_count++;
-    }
-
-    if (flag) {
-        ResultType result = game.ProcessNumber(selected_answer);
-
-        CHECK(result == ResultType::EQUAL);
-        CHECK(game.GetPlayState() == PlayState::WON);
+        if(guessed_number == selected_answer) break;
     }
 }
