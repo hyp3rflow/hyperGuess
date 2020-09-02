@@ -1,0 +1,8 @@
+//
+// Created by flow on 2020-09-01.
+//
+
+#ifndef HYPERGUESS_RANDOMAGENT_HPP
+#define HYPERGUESS_RANDOMAGENT_HPP
+
+#endif//HYPERGUESS_RANDOMAGENT_HPP
