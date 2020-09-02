@@ -51,7 +51,9 @@ TEST_CASE("Game - Basic") {
     }
 
     if (flag) {
-        game.ProcessNumber(selected_answer);
+        ResultType result = game.ProcessNumber(selected_answer);
+
+        CHECK(result == ResultType::EQUAL);
         CHECK(game.GetPlayState() == PlayState::WON);
     }
 }
