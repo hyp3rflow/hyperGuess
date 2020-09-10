@@ -5,44 +5,48 @@
 #ifndef HYPERGUESS_GAME_HPP
 #define HYPERGUESS_GAME_HPP
 
-#include <hyperGuess/Enums/GameEnums.hpp>
 #include <array>
+#include <hyperGuess/Enums/GameEnums.hpp>
 
-namespace hyperguess {
-    class Game {
-    public:
-        //! Constructs game with given \p number.
-        //! \param number The answer.
-        explicit Game(int answer);
+namespace hyperguess
+{
+class Game
+{
+ public:
+    //! Constructs game with given \p number.
+    //! \param number The answer.
+    explicit Game(int answer);
 
-        [[nodiscard]] int GetAnswer() const;
-        [[nodiscard]] int GetCount() const;
+    void Reset(int answer);
 
-        //! Gets a game state.
-        //! \return A game state.
-        [[nodiscard]] PlayState GetPlayState() const;
+    [[nodiscard]] int GetAnswer() const;
 
-        //! Checks a game state.
-        //! If player win, alter gameState value.
-        void CheckGameState();
+    ResultType GetNumberState(int number) const;
 
-        //! Processes the guessed number.
-        //! \param number Check the number boolean value in array.
-        ResultType ProcessNumber(int number);
+    void IncreaseCount();
 
-    private:
-        PlayState gameState = PlayState::INVALID;
+    [[nodiscard]] int GetCount() const;
 
-        int count = 0;
-        int answer = 0;
-        int picked_number = 0;
-        std::array<bool, 1000> picked_numbers{};
+    //! Gets a game state.
+    //! \return A game state.
+    [[nodiscard]] PlayState GetPlayState() const;
 
-        //! Check \p number is equal or (greater or less than answer)
-        //! \param number The guessing number.
-        //! \return The ResultType of the result.
-        [[nodiscard]] ResultType CheckPickedNumber(int number) const;
-    };
-}// namespace hyperguess
+    //! Processes the guessed number.
+    //! \param number Check the number boolean value in array.
+    void ProcessNumber(int number);
 
-#endif//HYPERGUESS_GAME_HPP
+    //! Check \p number is equal or (greater or less than answer)
+    //! \param number The guessing number.
+    //! \return The ResultType of the result.
+    [[nodiscard]] ResultType CheckPickedNumber(int number) const;
+
+ private:
+    PlayState gameState = PlayState::INVALID;
+
+    int count = 0;
+    int answer = 0;
+    std::array<ResultType, 1001> picked_numbers{};
+};
+}  // namespace hyperguess
+
+#endif  // HYPERGUESS_GAME_HPP

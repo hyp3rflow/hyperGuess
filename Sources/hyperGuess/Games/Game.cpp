@@ -4,47 +4,73 @@
 
 #include <hyperGuess/Games/Game.hpp>
 
-namespace hyperguess {
-    Game::Game(int answer) {
-        Game::answer = answer;
-        picked_numbers.fill({});
-        gameState = PlayState::PLAYING;
+namespace hyperguess
+{
+Game::Game(int answer)
+{
+    Game::answer = answer;
+    picked_numbers.fill(ResultType::EMPTY);
+    gameState = PlayState::PLAYING;
+}
+
+void Game::Reset(int newAnswer)
+{
+    answer = newAnswer;
+    count = 0;
+
+    picked_numbers.fill(ResultType::EMPTY);
+
+    gameState = PlayState::PLAYING;
+}
+
+int Game::GetAnswer() const
+{
+    return answer;
+}
+
+ResultType Game::GetNumberState(int number) const
+{
+    return picked_numbers.at(number);
+}
+
+void Game::IncreaseCount()
+{
+    count++;
+}
+
+int Game::GetCount() const
+{
+    return count;
+}
+
+PlayState Game::GetPlayState() const
+{
+    return gameState;
+}
+
+void Game::ProcessNumber(int number)
+{
+    if (picked_numbers[number] != ResultType::EMPTY)
+    {
+        return;
     }
 
-    int Game::GetAnswer() const {
-        return answer;
+    picked_numbers[number] = CheckPickedNumber(number);
+    if (picked_numbers[number] == ResultType::EQUAL)
+    {
+        gameState = PlayState::WON;
     }
 
-    int Game::GetCount() const {
-        return count;
-    }
+    IncreaseCount();
+}
 
-    PlayState Game::GetPlayState() const {
-        return gameState;
-    }
-
-    void Game::CheckGameState() {
-        if (picked_number == answer) {
-            gameState = PlayState::WON;
-        }
-    }
-
-    ResultType Game::ProcessNumber(int number) {
-        picked_number = number;
-        count++;
-
-        CheckGameState();
-
-        if (!picked_numbers.at(number - 1)) {
-            picked_numbers.at(number - 1) = true;
-        }
-
-        return CheckPickedNumber(number);
-    }
-
-    [[nodiscard]] ResultType Game::CheckPickedNumber(int number) const {
-        if (number == answer) return ResultType::EQUAL;
-        else if (number > answer) return ResultType::UP;
-        else return ResultType::DOWN;
-    }
-}// namespace hyperguess
+[[nodiscard]] ResultType Game::CheckPickedNumber(int number) const
+{
+    if (number == answer)
+        return ResultType::EQUAL;
+    else if (number < answer)
+        return ResultType::UP;
+    else
+        return ResultType::DOWN;
+}
+}  // namespace hyperguess
