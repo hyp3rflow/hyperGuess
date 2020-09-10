@@ -29,22 +29,6 @@ matrix:
         else
           sh Scripts/travis_build_codecov_sonar.sh
         fi
-  - name: Ubuntu 18.04 LTS + gcc
-    os: linux
-    addons:
-      apt:
-        sources:
-          - deadsnakes
-          - ubuntu-toolchain-r-test
-        packages:
-          - g++-7
-          - python3.7-dev
-          - python3.7-venv
-    dist: bionic
-    sudo: required
-    compiler: gcc
-    script:
-    - sh Scripts/travis_build.sh
   - name: Test OS X 10.14 + Xcode 10.2 + clang
     os: osx
     osx_image: xcode10.2
