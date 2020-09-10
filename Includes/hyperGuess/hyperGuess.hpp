@@ -10,4 +10,4 @@
 #include <hyperGuess/Enums/GameEnums.hpp>
 #include <hyperGuess/Games/Game.hpp>
 
-#endif//HYPERGUESS_HPP
+#endif  // HYPERGUESS_HPP

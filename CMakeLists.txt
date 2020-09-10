@@ -18,17 +18,19 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Includes directory
 include_directories(Includes)
+include_directories(Extensions/PythonGuess/Includes)
 include_directories(Libraries)
 include_directories(Libraries/doctest/doctest)
 include_directories(Libraries/random/include)
+include_directories(Libraries/pybind11/include)
 
 # Compile options
 include(CMake/CompileOptions.cmake)
 
 # Build type - Release by default
-if(NOT CMAKE_BUILD_TYPE)
+if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
-endif()
+endif ()
 
 # Overrides
 set(CMAKE_MACOSX_RPATH ON)
@@ -36,6 +38,8 @@ set(CMAKE_MACOSX_RPATH ON)
 add_subdirectory(Libraries/doctest)
 add_subdirectory(Sources/hyperGuess)
 add_subdirectory(Tests/UnitTests)
+add_subdirectory(Libraries/pybind11)
+add_subdirectory(Extensions/PythonGuess)
 
 # Code coverage - Debug only
 # NOTE: Code coverage results with an optimized (non-Debug) build may be misleading
@@ -43,4 +47,4 @@ option(BUILD_COVERAGE "Build code coverage" OFF)
 if (CMAKE_BUILD_TYPE MATCHES Debug AND CMAKE_COMPILER_IS_GNUCXX AND BUILD_COVERAGE)
     include(CodeCoverage)
     setup_target_for_coverage(${PROJECT_NAME}_coverage UnitTests coverage)
-endif()
+endif ()
