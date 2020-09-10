@@ -3,8 +3,8 @@
 //
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
 #include <effolkronium/random.hpp>
+#include "doctest.h"
 
 #undef NEAR
 
@@ -14,39 +14,47 @@
 
 using namespace hyperguess;
 
-TEST_CASE("Game - Basic") {
-    using Random = effolkronium::random_static;
-    int selected_answer = Random::get(1, 1000);
+TEST_CASE("Game - Basic")
+{
+    int answer = 47;
 
-    Game game(selected_answer);
+    Game game(answer);
+    CHECK(game.GetAnswer() == 47);
 
-    CHECK(game.GetAnswer() == selected_answer);
-    CHECK(game.GetPlayState() == PlayState::PLAYING);
     CHECK(game.GetCount() == 0);
 
-    int test_count = 1;
-    while (test_count <= 100) {
-        CHECK(game.GetPlayState() == PlayState::PLAYING);
+    game.ProcessNumber(46);
+    CHECK(game.GetNumberState(46) == ResultType::UP);
 
-        int guessed_number = Random::get(1, 1000);
-        if(test_count == 100) guessed_number = selected_answer;
-        ResultType result = game.ProcessNumber(guessed_number);
+    CHECK(game.GetCount() == 1);
 
-        CHECK(game.GetCount() == test_count);
+    game.ProcessNumber(47);
+    CHECK(game.GetNumberState(47) == ResultType::EQUAL);
+    CHECK(game.GetPlayState() == PlayState::WON);
 
-        if (result == ResultType::EQUAL) {
-            CHECK(guessed_number == selected_answer);
-            CHECK(game.GetPlayState() == PlayState::WON);
-        } else {
-            if (guessed_number > selected_answer)
-                CHECK(result == ResultType::UP);
-            else
-                CHECK(result == ResultType::DOWN);
-            CHECK(guessed_number != selected_answer);
-            CHECK(game.GetPlayState() == PlayState::PLAYING);
-        }
+    CHECK(game.GetCount() == 2);
 
-        test_count++;
-        if(guessed_number == selected_answer) break;
-    }
+    game.Reset(3);
+
+    CHECK(game.GetCount() == 0);
+
+    CHECK(game.GetNumberState(47) == ResultType::EMPTY);
+    CHECK(game.GetPlayState() == PlayState::PLAYING);
+
+    game.ProcessNumber(3);
+    CHECK(game.GetNumberState(3) == ResultType::EQUAL);
+    CHECK(game.GetPlayState() == PlayState::WON);
+
+    CHECK(game.GetCount() == 1);
+}
+
+TEST_CASE("GAME - RandomAgent")
+{
+    Game game(43);
+
+    RandomAgent agent;
+
+    const int action = agent.GetAction(game);
+
+    CHECK(((action >= 1) && (action <= 1000)));
 }
